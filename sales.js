@@ -14,6 +14,18 @@ function addItem()
   // update the innerHTML of the span with the id "subtotal" to be dollars
   // update the value of the input with the id "price" to be an empty string
   // update a cookie called "preTax" with the value of runningTotal
+  if(isNaN(newItem) == true){
+    alert("Enter price as a number")
+  }
+  else {
+    newItem = Number(newItem);
+    runningTotal += newItem;
+    var dollars = asCurrency(runningTotal);
+    document.getElementById("subtotal").innerHTML = dollars;
+    document.getElementById("price").innerHTML = "";
+    setCookie("preTax", runningTotal, 365);
+
+  }
 }
 
 //takes a number and gives a string with the number displayed as USD currency
